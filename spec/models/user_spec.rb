@@ -110,37 +110,37 @@ RSpec.describe User, type: :model do
       it 'first_nameが半角では登録できない' do
         @user.first_name = 'satou'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name には全角文字を使用してください")
+        expect(@user.errors.full_messages).to include('First name には全角文字を使用してください')
       end
 
       it 'last_nameが半角では登録できない' do
         @user.last_name = 'tarou'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name には全角文字を使用してください")
+        expect(@user.errors.full_messages).to include('Last name には全角文字を使用してください')
       end
 
       it 'first_name_japaneseが半角では登録できない' do
         @user.first_name_japanese = 'sato'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name japanese には全角カタカナを使用してください")
+        expect(@user.errors.full_messages).to include('First name japanese には全角カタカナを使用してください')
       end
 
       it 'last_name_japaneseが半角では登録できない' do
         @user.last_name_japanese = 'tarou'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name japanese には全角カタカナを使用してください")
+        expect(@user.errors.full_messages).to include('Last name japanese には全角カタカナを使用してください')
       end
 
       it 'first_name_japaneseがひらがなでは登録できない' do
         @user.first_name_japanese = 'さとう'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name japanese には全角カタカナを使用してください")
+        expect(@user.errors.full_messages).to include('First name japanese には全角カタカナを使用してください')
       end
 
       it 'last_name_japaneseがひらがなでは登録できない' do
         @user.last_name_japanese = 'たろう'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name japanese には全角カタカナを使用してください")
+        expect(@user.errors.full_messages).to include('Last name japanese には全角カタカナを使用してください')
       end
     end
   end
