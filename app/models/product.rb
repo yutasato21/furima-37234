@@ -17,5 +17,5 @@ class Product < ApplicationRecord
   belongs_to :situation
   belongs_to :delivery_charge
   belongs_to :prefectures
-  belongs_to :delivery_days
+  belongs_to :delivery_day
 end
