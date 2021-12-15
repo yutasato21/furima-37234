@@ -19,4 +19,6 @@ class User < ApplicationRecord
     validates :first_name_japanese
     validates :last_name_japanese
   end
+
+  has_many :products
 end
