@@ -10,6 +10,4 @@ FactoryBot.define do
     last_name_japanese    { 'ヤマダ' }
     birthday              { '2000-01-01' }
   end
-
-  
 end

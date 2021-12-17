@@ -25,31 +25,31 @@ RSpec.describe Product, type: :model do
         expect(@product.errors.full_messages).to include("Text can't be blank")
       end
 
-      it 'category_idの値が1では出品できない' do
+      it 'category_idの値が"---"[1]では出品できない' do
         @product.category_id = '1'
         @product.valid?
         expect(@product.errors.full_messages).to include("Category can't be blank")
       end
 
-      it 'situation_idの値が1では出品できない' do
+      it 'situation_idの値が"---"[1]では出品できない' do
         @product.situation_id = '1'
         @product.valid?
         expect(@product.errors.full_messages).to include("Situation can't be blank")
       end
 
-      it 'delivery_charge_idの値が1では出品できない' do
+      it 'delivery_charge_idの値が"---"[1]では出品できない' do
         @product.delivery_charge_id = '1'
         @product.valid?
         expect(@product.errors.full_messages).to include("Delivery charge can't be blank")
       end
 
-      it 'prefectures_idの値が1では出品できない' do
+      it 'prefectures_idの値が"---"[1]では出品できない' do
         @product.prefectures_id = '1'
         @product.valid?
         expect(@product.errors.full_messages).to include("Prefectures can't be blank")
       end
 
-      it 'delivery_day_idの値が1では出品できない' do
+      it 'delivery_day_idの値が"---"[1]では出品できない' do
         @product.delivery_day_id = '1'
         @product.valid?
         expect(@product.errors.full_messages).to include("Delivery day can't be blank")
@@ -76,31 +76,31 @@ RSpec.describe Product, type: :model do
       it 'priceが299以下では出品できない' do
         @product.price = '100'
         @product.valid?
-        expect(@product.errors.full_messages).to include("Price must be greater than or equal to 300")
+        expect(@product.errors.full_messages).to include('Price must be greater than or equal to 300')
       end
 
       it 'priceが9999999以上では出品できない' do
         @product.price = '10000000'
         @product.valid?
-        expect(@product.errors.full_messages).to include("Price must be less than or equal to 9999999")
+        expect(@product.errors.full_messages).to include('Price must be less than or equal to 9999999')
       end
 
       it 'priceが半角文字では出品できない' do
         @product.price = 'gohyaku'
         @product.valid?
-        expect(@product.errors.full_messages).to include("Price is not a number")
+        expect(@product.errors.full_messages).to include('Price is not a number')
       end
 
       it 'priceが全角数字では出品できない' do
         @product.price = '５００'
         @product.valid?
-        expect(@product.errors.full_messages).to include("Price is not a number")
+        expect(@product.errors.full_messages).to include('Price is not a number')
       end
 
       it 'priceが全角文字では出品できない' do
         @product.price = '五百'
         @product.valid?
-        expect(@product.errors.full_messages).to include("Price is not a number")
+        expect(@product.errors.full_messages).to include('Price is not a number')
       end
     end
   end
