@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: :new
+  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :set_product, only: [:show, :edit, :update]
+  before_action :move_to_index, only: :edit
 
   def index
     @products = Product.includes(:user).order('created_at DESC')
@@ -19,7 +21,17 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to product_path
+    else
+      render :edit
+    end
   end
 
   private
@@ -27,5 +39,13 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :text, :image, :category_id, :situation_id, :delivery_charge_id, :prefectures_id,
                                     :delivery_day_id, :price).merge(user_id: current_user.id)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def move_to_index
+    redirect_to action: :index unless current_user.id == @product.user.id
   end
 end
