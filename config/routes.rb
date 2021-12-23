@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root 'products#index'
 
   resources :products do
-    resources :purchase, only: [:index, :create]
+    resources :purchases, only: [:index, :create]
   end
 end
