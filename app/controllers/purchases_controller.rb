@@ -5,9 +5,10 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    @parchase_address = ParchaseAddress.new(purchase_params)
-    if @parchase_address.valid?
-      @parchase_address.save
+    @product = Product.find(params[:product_id])
+    @purchase_address = PurchaseAddress.new(purchase_params)
+    if @purchase_address.valid?
+      @purchase_address.save
       redirect_to root_path
     else
       render :index
