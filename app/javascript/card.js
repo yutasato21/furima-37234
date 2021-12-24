@@ -1,10 +1,10 @@
 const pay = () => {
-  Payjp.setPublicKey("")
+  Payjp.setPublicKey("");
   const submit = document.getElementById("button");
   submit.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const formResult = document.getElementById("charge-form")
+    const formResult = document.getElementById("charge-form");
     const formData = new FormData(formResult);
 
     const card = {
@@ -22,14 +22,14 @@ const pay = () => {
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
       }
 
-      document.getElementById("purchase_address[number]").removeAttribute("name");
-      document.getElementById("purchase_address[cvc]").removeAttribute("name");
-      document.getElementById("purchase_address[exp_month]").removeAttribute("name");
-      document.getElementById("purchase_address[exp_year]").removeAttribute("name");
+      document.getElementById("card-number").removeAttribute("name");
+      document.getElementById("card-cvc").removeAttribute("name");
+      document.getElementById("card-exp-month").removeAttribute("name");
+      document.getElementById("card-exp-year").removeAttribute("name");
 
       document.getElementById("charge-form").submit();
     });
   });
 };
 
-window.addEventListener("lord", pay);
+window.addEventListener("load", pay);
