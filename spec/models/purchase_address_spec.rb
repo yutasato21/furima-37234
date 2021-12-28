@@ -42,7 +42,7 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'post_numberが空では保存できない' do
         @purchase_address.post_number = ''
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Number can't be blank")
+        expect(@purchase_address.errors.full_messages).to include("Post number can't be blank")
       end
 
       it 'telephoneが空では保存できない' do
