@@ -39,8 +39,8 @@ RSpec.describe PurchaseAddress, type: :model do
         expect(@purchase_address.errors.full_messages).to include("Municipalities can't be blank")
       end
 
-      it 'numberが空では保存できない' do
-        @purchase_address.number = ''
+      it 'post_numberが空では保存できない' do
+        @purchase_address.post_number = ''
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Number can't be blank")
       end

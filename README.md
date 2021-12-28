@@ -57,7 +57,7 @@
 | post           | string     | null: false                    |
 | prefectures_id | integer    | null: false                    |
 | municipalities | string     | null: false                    |
-| number         | integer    | null: false                    |
+| post_number    | integer    | null: false                    |
 | building       | string     |                                |
 | telephone      | string     | null: false                    |
 | purchase       | references | null: false, foreign_key: true |
